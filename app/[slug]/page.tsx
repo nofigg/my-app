@@ -1,7 +1,7 @@
 import { projects } from "@/lib/projects"
 import Link from "next/link"
 
-function toTitleCase(str) {
+function toTitleCase(str: string) {
   return str.replace(
     /\w\S*/g,
     function(txt) {
