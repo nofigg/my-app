@@ -6,18 +6,33 @@ export function Footer() {
     <footer className="border-t">
       <div className="container mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 max-w-[700px]">
         <p className="text-sm text-muted-foreground">
-          © 2024 N — F. All rights reserved. 🎖️
+          2024 N — F. All rights reserved. 🎖️
         </p>
         <div className="flex items-center gap-4">
-          <Link href="https://www.instagram.com/poweredbynolan/" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link 
+            href="https://www.instagram.com/poweredbynolan/" 
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Instagram className="h-5 w-5" />
             <span className="sr-only">Instagram</span>
           </Link>
-          <Link href="https://x.com/poweredbynolan" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link 
+            href="https://x.com/poweredbynolan" 
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Twitter className="h-5 w-5" />
             <span className="sr-only">Twitter</span>
           </Link>
-          <Link href="https://linkedin.com" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link 
+            href="https://linkedin.com" 
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Linkedin className="h-5 w-5" />
             <span className="sr-only">LinkedIn</span>
           </Link>

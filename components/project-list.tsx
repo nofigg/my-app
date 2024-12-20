@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { ChevronUp, ChevronDown } from 'lucide-react'
 import { Project } from "@/lib/projects"
@@ -13,6 +14,7 @@ interface ProjectListProps {
 }
 
 export default function ProjectList({ projects }: ProjectListProps) {
+  const router = useRouter();
   const [sortKey, setSortKey] = useState<SortKey>('date');
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
 
@@ -21,17 +23,6 @@ export default function ProjectList({ projects }: ProjectListProps) {
     if (a[sortKey] > b[sortKey]) return sortOrder === 'asc' ? 1 : -1;
     return 0;
   });
-
-  // Modify the first project in the list
-  if (sortedProjects.length > 0) {
-    sortedProjects[0] = {
-      ...sortedProjects[0],
-      date: "2024-01-01",
-      type: "Blog",
-      title: "How AI can supercharge designers",
-      slug: "how-ai-can-supercharge-designers"
-    };
-  }
 
   const toggleSort = (key: SortKey) => {
     if (key === sortKey) {
@@ -54,7 +45,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
         <table className="min-w-full text-sm relative">
           <thead>
             <tr className="border-b border-muted">
-              <th className="text-left font-bold p-2 sm:p-3 text-muted-foreground">
+              <th className="text-left p-2 sm:p-3 text-muted-foreground">
                 <button 
                   onClick={() => toggleSort('date')}
                   className="flex items-center hover:text-foreground transition-colors"
@@ -64,7 +55,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                   <SortIcon columnKey="date" />
                 </button>
               </th>
-              <th className="text-left font-bold p-2 sm:p-3 text-muted-foreground hidden sm:table-cell">
+              <th className="text-left p-2 sm:p-3 text-muted-foreground hidden sm:table-cell">
                 <button 
                   onClick={() => toggleSort('type')}
                   className="flex items-center hover:text-foreground transition-colors"
@@ -74,7 +65,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                   <SortIcon columnKey="type" />
                 </button>
               </th>
-              <th className="text-left font-bold p-2 sm:p-3 text-muted-foreground">
+              <th className="text-left p-2 sm:p-3 text-muted-foreground">
                 <button 
                   onClick={() => toggleSort('title')}
                   className="flex items-center hover:text-foreground transition-colors"
@@ -91,11 +82,11 @@ export default function ProjectList({ projects }: ProjectListProps) {
               <tr 
                 key={project.slug} 
                 className="border-b border-muted hover:bg-muted/50 focus-within:bg-muted/50 transition-colors cursor-pointer group"
-                onClick={() => window.location.href = `/${project.slug}`}
+                onClick={() => router.push(`/${project.slug}`)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault()
-                    window.location.href = `/${project.slug}`
+                    router.push(`/${project.slug}`)
                   }
                 }}
                 tabIndex={0}
