@@ -17,33 +17,15 @@ export const projects: Project[] = [
     slug: "cad-services-logo",
     type: "Branding",
     description: "Created a minimalist, geometric logo design for a Computer-Aided Design (CAD) services company that reflects precision and technical expertise.",
-    content: `# Logo Design for a New CAD Services Team
+    content: `Creating a brand identity for a CAD services team requires a delicate balance of technical precision and approachable design. This project focused on developing a minimalist logo that would resonate with both engineering professionals and potential clients.
 
-The project began with a thorough discovery phase to understand the client's vision, industry context, and target audience. The goal was to create a mark that would convey technical precision while maintaining a modern, approachable aesthetic.
+The design process began with extensive research into the CAD industry, analyzing competitor logos, and identifying key visual elements that represent precision and technical expertise. Drawing inspiration from geometric forms and architectural drawings, we explored various combinations of basic shapes that could represent the company's initials.
 
-## Design Process
+The final design emerged from this iterative process: a triangle and semicircle composition that forms an abstract "AD" monogram. The triangle's sharp angles convey precision and technical accuracy, while the semicircle adds a softer, more approachable element. The stark black and white palette ensures the logo remains clear and impactful across all applications.
 
-1. **Research & Discovery**
-   - Analyzed competitor logos in the CAD and technical services space
-   - Identified key visual elements that represent precision and technical expertise
-   - Gathered inspiration from geometric forms and architectural drawings
+Throughout the refinement phase, we meticulously adjusted the geometric proportions to achieve perfect balance. The logo was tested at various sizes to ensure it remained distinctive whether displayed on a business card or a billboard. The final deliverables included multiple file formats, comprehensive usage guidelines, and variations optimized for different backgrounds and applications.
 
-2. **Concept Development**
-   - Explored various combinations of triangles and curves to represent 'CAD'
-   - Focused on creating a mark that works well at different scales
-   - Maintained simplicity while ensuring the design remained memorable
-
-3. **Refinement**
-   - Fine-tuned the geometric proportions for perfect balance
-   - Created a minimalist black and white version as the primary logo
-   - Ensured the design worked across different applications
-
-4. **Final Delivery**
-   - Delivered the logo in various file formats for different use cases
-   - Provided guidelines for proper logo usage and spacing
-   - Created variations for different backgrounds and sizes
-
-The final design combines a triangle and a semicircle to create an abstract "AD" monogram. The geometric shapes reference the technical nature of CAD work, while the minimal black and white palette ensures versatility across all applications.`,
+This minimalist approach not only reflects the technical nature of CAD work but also embodies the company's commitment to clarity and precision in their services.`,
     technologies: ["Adobe Illustrator", "Figma", "Vector Graphics", "Typography"],
     challenges: [
       "Creating a mark that's both simple and distinctive",

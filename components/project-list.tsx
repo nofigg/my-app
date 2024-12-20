@@ -6,6 +6,15 @@ import Link from "next/link"
 import { ChevronUp, ChevronDown } from 'lucide-react'
 import { Project } from "@/lib/projects"
 
+function toTitleCase(str: string) {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}
+
 type SortKey = 'date' | 'type' | 'title';
 type SortOrder = 'asc' | 'desc';
 
@@ -100,7 +109,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                 <td className="text-muted-foreground py-3 px-2 sm:px-3 hidden sm:table-cell group-hover:underline group-focus-within:underline">{project.type}</td>
                 <td className="py-3 px-2 sm:px-3">
                   <span className="font-bold group-hover:underline group-focus-within:underline">
-                    {project.title}
+                    {toTitleCase(project.title)}
                   </span>
                 </td>
               </tr>

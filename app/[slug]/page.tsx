@@ -42,12 +42,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </div>
 
       {project.slug === 'cad-services-logo' && (
-        <div className="relative w-full aspect-[2/1] bg-muted rounded-lg overflow-hidden">
+        <div className="relative w-full aspect-[2/1] bg-white -mx-4 sm:-mx-6 rounded-none sm:rounded-lg overflow-hidden">
           <Image
-            src="/projects/cad-logo.svg"
+            src="/projects/cad-logo.png"
             alt="CAD Services Logo"
             fill
-            className="object-contain p-8"
+            className="object-contain p-4 sm:p-8"
             priority
           />
         </div>
