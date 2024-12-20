@@ -1,4 +1,7 @@
 <svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M300 100 L500 100 L400 300 Z" fill="black"/>
-  <path d="M500 100 A200 200 0 0 1 500 300 L500 100" fill="black"/>
+  <!-- Triangle (A) -->
+  <path d="M300 100 L400 300 L200 300 Z" fill="black"/>
+  
+  <!-- Semicircle (D) with spacing -->
+  <path d="M450 100 A200 200 0 0 1 450 300 L450 100" fill="black"/>
 </svg>
