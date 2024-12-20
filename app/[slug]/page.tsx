@@ -1,6 +1,8 @@
 import { projects } from "@/lib/projects"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
+import { format } from "date-fns"
 
 function toTitleCase(str: string) {
   return str.replace(
@@ -21,53 +23,84 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) {
-    notFound();
+    notFound()
   }
 
+  const date = new Date(project.date);
+  const formattedDate = format(date, 'MMM yyyy');
+
   return (
-    <article className="prose dark:prose-invert max-w-none mx-auto">
-      <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors inline-block mb-4">
-        ← Back home
-      </Link>
-      <h1 className="mt-4 mb-4 text-2xl sm:text-3xl md:text-4xl font-bold">
-        {toTitleCase(project.title)}
-      </h1>
-      <div className="flex items-center gap-3 text-muted-foreground mb-4 text-sm sm:text-base">
-        <span>{project.type}</span>
-        <span>•</span>
-        <time dateTime={project.date}>
-          {new Date(project.date).toLocaleDateString('en-US', { 
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })}
-        </time>
+    <div className="space-y-8">
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-semibold tracking-tight">{toTitleCase(project.title)}</h1>
+          <time className="text-sm text-muted-foreground" dateTime={project.date}>
+            {formattedDate}
+          </time>
+        </div>
+        <p className="text-muted-foreground">{project.description}</p>
       </div>
-      
-      <h2 className="text-xl sm:text-2xl mt-8 mb-4 font-bold">Project Details</h2>
-      <p className="mb-4">{project.description}</p>
-      <p className="mb-4">{project.content}</p>
-      
-      <h3 className="text-lg sm:text-xl mt-6 mb-3 font-bold">Technologies Used</h3>
-      <ul className="mb-6 pl-5 list-disc">
-        {project.technologies.map((tech, index) => (
-          <li key={`${tech}-${index}`} className="mb-1">{tech}</li>
-        ))}
-      </ul>
-      
-      <h3 className="text-lg sm:text-xl mt-6 mb-3 font-bold">Challenges</h3>
-      <ul className="mb-6 pl-5 list-disc">
-        {project.challenges.map((challenge, index) => (
-          <li key={`${challenge}-${index}`} className="mb-1">{challenge}</li>
-        ))}
-      </ul>
-      
-      <h3 className="text-lg sm:text-xl mt-6 mb-3 font-bold">Outcomes</h3>
-      <ul className="mb-6 pl-5 list-disc">
-        {project.outcomes.map((outcome, index) => (
-          <li key={`${outcome}-${index}`} className="mb-1">{outcome}</li>
-        ))}
-      </ul>
-    </article>
+
+      {project.slug === 'cad-services-logo' && (
+        <div className="relative w-full aspect-[2/1] bg-muted rounded-lg overflow-hidden">
+          <Image
+            src="/projects/cad-logo.svg"
+            alt="CAD Services Logo"
+            fill
+            className="object-contain p-8"
+            priority
+          />
+        </div>
+      )}
+
+      <div className="prose prose-gray max-w-none dark:prose-invert">
+        {project.content}
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="text-xl font-semibold tracking-tight">Technologies Used</h2>
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <div
+              key={tech}
+              className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            >
+              {tech}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="text-xl font-semibold tracking-tight">Challenges</h2>
+        <ul className="list-disc list-inside space-y-2">
+          {project.challenges.map((challenge, index) => (
+            <li key={index} className="text-muted-foreground">
+              {challenge}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="text-xl font-semibold tracking-tight">Outcomes</h2>
+        <ul className="list-disc list-inside space-y-2">
+          {project.outcomes.map((outcome, index) => (
+            <li key={index} className="text-muted-foreground">
+              {outcome}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="flex justify-center pt-8">
+        <Link
+          href="/"
+          className="inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
+        >
+          ← Back to Projects
+        </Link>
+      </div>
+    </div>
   )
 }

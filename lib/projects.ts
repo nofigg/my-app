@@ -12,6 +12,51 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    date: "2024-08-01",
+    title: "Logo Design for a New CAD Services Team",
+    slug: "cad-services-logo",
+    type: "Branding",
+    description: "Created a minimalist, geometric logo design for a Computer-Aided Design (CAD) services company that reflects precision and technical expertise.",
+    content: `# Logo Design for a New CAD Services Team
+
+The project began with a thorough discovery phase to understand the client's vision, industry context, and target audience. The goal was to create a mark that would convey technical precision while maintaining a modern, approachable aesthetic.
+
+## Design Process
+
+1. **Research & Discovery**
+   - Analyzed competitor logos in the CAD and technical services space
+   - Identified key visual elements that represent precision and technical expertise
+   - Gathered inspiration from geometric forms and architectural drawings
+
+2. **Concept Development**
+   - Explored various combinations of triangles and curves to represent 'CAD'
+   - Focused on creating a mark that works well at different scales
+   - Maintained simplicity while ensuring the design remained memorable
+
+3. **Refinement**
+   - Fine-tuned the geometric proportions for perfect balance
+   - Created a minimalist black and white version as the primary logo
+   - Ensured the design worked across different applications
+
+4. **Final Delivery**
+   - Delivered the logo in various file formats for different use cases
+   - Provided guidelines for proper logo usage and spacing
+   - Created variations for different backgrounds and sizes
+
+The final design combines a triangle and a semicircle to create an abstract "AD" monogram. The geometric shapes reference the technical nature of CAD work, while the minimal black and white palette ensures versatility across all applications.`,
+    technologies: ["Adobe Illustrator", "Figma", "Vector Graphics", "Typography"],
+    challenges: [
+      "Creating a mark that's both simple and distinctive",
+      "Balancing technical precision with approachable design",
+      "Ensuring scalability across different mediums"
+    ],
+    outcomes: [
+      "Delivered a versatile logo that works across digital and print media",
+      "Created a strong visual identity that reflects technical expertise",
+      "Received positive feedback from client and industry professionals"
+    ]
+  },
+  {
     date: "2014-05-15",
     title: "Interactive Data Visualization Dashboard",
     slug: "interactive-data-viz-dashboard",
