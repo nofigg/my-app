@@ -44,7 +44,3 @@ export default function RootLayout({ children }: RootLayoutProps) {
     </html>
   )
 }
-
-
-
-import './globals.css'
