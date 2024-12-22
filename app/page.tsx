@@ -6,7 +6,7 @@ export default function Home() {
     <main className="space-y-8 sm:space-y-12">
       <section>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
-          I build stuff, dream big, and have a knack for turning wild ideas into real change.
+          I'm a systemic builder with big dreams and a knack for turning your vision into life-changing experiences.
         </h1>
         <div className="mb-6 sm:mb-8">
           <p className="text-sm sm:text-base text-muted-foreground mb-2">
