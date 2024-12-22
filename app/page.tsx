@@ -18,7 +18,7 @@ export default function Home() {
             href="mailto:nfigueroa06@gmail.com?subject=Inquiry%20from%20Your%20Website&body=Hello%20Nolan,%0D%0A%0D%0AI%20visited%20your%20website%20and%20would%20like%20to%20connect%20with%20you%20about..."
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 sm:px-6 text-sm text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           >
-            Email Me
+            <span className="font-bold">Email Me</span>
           </a>
         </div>
       </section>
