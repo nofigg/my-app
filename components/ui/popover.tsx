@@ -1,30 +1,25 @@
-"use client"
+"use client"; // Assuming this is for Deno or specific environment, otherwise remove or adjust as needed
 
-import * as React from "react"
-import * as PopoverPrimitive from "@radix-ui/react-popover"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { Popover, PopoverTrigger, PopoverContent, PopoverPortal } from "@radix-ui/react-popover";
+import { cn } from "@/lib/utils";
 
-const { Root, Trigger, Portal, Content } = PopoverPrimitive as typeof import("@radix-ui/react-popover")
-
-const Popover = Root
-const PopoverTrigger = Trigger
-const PopoverPortal = Portal
-
-const PopoverContent = React.forwardRef<
-  React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+const CustomPopoverContent = React.forwardRef<
+  React.ElementRef<typeof PopoverContent>,
+  React.ComponentPropsWithoutRef<typeof PopoverContent>
 >(({ className, align = "center", sideOffset = 4, ...props }, ref) => (
-  <Content
+  <PopoverContent
     ref={ref}
     align={align}
     sideOffset={sideOffset}
     className={cn(
-      "z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      "z-50 rounded-md border border-popover bg-popover p-4 shadow-md outline-none animate-in data-[state=open]:fade-in-90 data-[state=closed]:fade-out-90 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
       className
     )}
     {...props}
   />
-))
-PopoverContent.displayName = Content.displayName
+));
 
-export { Popover, PopoverTrigger, PopoverContent, PopoverPortal }
+CustomPopoverContent.displayName = "CustomPopoverContent"; // Set a display name for debugging and React DevTools
+
+export { Popover, PopoverTrigger, CustomPopoverContent as PopoverContent, PopoverPortal };
