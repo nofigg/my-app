@@ -26,72 +26,112 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     notFound()
   }
 
-  const date = new Date(project.date);
-  const formattedDate = format(date, 'MMM yyyy');
-
   return (
     <div className="space-y-8">
+      <div className="pb-4">
+        <Link
+          href="/"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          ← Back to Projects
+        </Link>
+      </div>
+      
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold tracking-tight">{toTitleCase(project.title)}</h1>
-          <time className="text-sm text-muted-foreground" dateTime={project.date}>
-            {formattedDate}
-          </time>
         </div>
         <p className="text-muted-foreground">{project.description}</p>
       </div>
 
       {project.slug === 'cad-services-logo' && (
-        <div className="relative w-full aspect-[2/1] bg-white -mx-4 sm:-mx-6 rounded-none sm:rounded-lg overflow-hidden">
+        <div className="relative w-full aspect-[2/1] bg-white">
           <Image
             src="/projects/cad-logo.png"
             alt="CAD Services Logo"
             fill
-            className="object-contain p-4 sm:p-8"
+            className="object-cover w-full h-full"
+            priority
+          />
+        </div>
+      )}
+
+      {project.slug === 'maze-runner-game' && (
+        <div className="relative w-full aspect-square bg-[#b366ff] rounded-lg overflow-hidden mb-8">
+          <Image
+            src="/projects/maze-runner.png"
+            alt="Maze Runner Game Screenshot"
+            layout="responsive"
+            width={800}
+            height={800}
+            className="object-contain"
             priority
           />
         </div>
       )}
 
       <div className="prose prose-gray max-w-none dark:prose-invert">
-        {project.content}
-      </div>
+        <div className="space-y-4" dangerouslySetInnerHTML={{ 
+          __html: project.content.split('\n\n').map(paragraph => 
+            paragraph.startsWith('•') 
+              ? `<li class="list-none my-4"><span class="text-primary">${paragraph}</span></li>`
+              : paragraph === 'Gameplay'
+                ? `<h2 class="text-xl font-semibold mt-8 mb-2">${paragraph}</h2>`
+              : paragraph.startsWith('Check it out:') 
+                ? `<h3 class="font-semibold text-lg mt-8 mb-4">${paragraph}</h3>`
+                : `<p>${paragraph}</p>`
+          ).join('')
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/90 underline">$1</a>')
+        }} />
 
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold tracking-tight">Technologies Used</h2>
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
-            <div
-              key={tech}
-              className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-            >
-              {tech}
+        {project.technologies && (
+          <div className="mt-8">
+            <h2 className="text-xl font-semibold mb-4">Technologies Used</h2>
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="badge inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
-          ))}
+          </div>
+        )}
+      </div>
+
+      {project.challenges && project.challenges.length > 0 && (
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold tracking-tight">Challenges</h2>
+          <ul className="list-disc list-inside space-y-2">
+            {project.challenges.map((challenge, index) => (
+              <li key={index} className="text-muted-foreground">
+                {challenge}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      )}
 
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold tracking-tight">Challenges</h2>
-        <ul className="list-disc list-inside space-y-2">
-          {project.challenges.map((challenge, index) => (
-            <li key={index} className="text-muted-foreground">
-              {challenge}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {project.outcomes && project.outcomes.length > 0 && (
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold tracking-tight">Outcomes</h2>
+          <ul className="list-disc list-inside space-y-2">
+            {project.outcomes.map((outcome, index) => (
+              <li key={index} className="text-muted-foreground">
+                {outcome}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold tracking-tight">Outcomes</h2>
-        <ul className="list-disc list-inside space-y-2">
-          {project.outcomes.map((outcome, index) => (
-            <li key={index} className="text-muted-foreground">
-              {outcome}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {project.slug === 'maze-runner-game' && (
+        <div className="text-sm text-muted-foreground italic text-center">
+          This game was inspired by and created for my son, Levi, combining his love for rockets and colorful adventures.
+        </div>
+      )}
 
       <div className="flex justify-center pt-8">
         <Link
