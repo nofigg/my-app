@@ -50,7 +50,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
   return (
     <div className="overflow-x-auto -mx-4 sm:-mx-6">
       <div className="inline-block min-w-full py-6 align-middle px-4 sm:px-6">
-        <h2 className="text-2xl font-bold mb-4 text-left">What Was I Thinkin'</h2>
+        <h2 className="text-2xl font-bold mb-4 text-left">What Was I Thinkin&apos;</h2>
         <table className="min-w-full text-sm relative">
           <thead>
             <tr className="border-b border-muted">
