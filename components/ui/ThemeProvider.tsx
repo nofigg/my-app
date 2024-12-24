@@ -1,14 +1,14 @@
 import * as React from "react";
-import { NextThemesProvider, ThemeProviderProps } from "next-themes";
+import { ThemeProvider as NextThemeProvider } from "next-themes";
+import type { ThemeProviderProps } from "next-themes";
 
 export function ThemeProvider({
   children,
-  attribute, // Ensure attribute is of the correct type
   ...props
-}: ThemeProviderProps & { attribute: string }) {
+}: ThemeProviderProps) {
   return (
-    <NextThemesProvider {...props} attribute={attribute}>
+    <NextThemeProvider {...props}>
       {children}
-    </NextThemesProvider>
+    </NextThemeProvider>
   );
 }
