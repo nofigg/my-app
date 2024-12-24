@@ -1,9 +1,9 @@
-import { Project } from '../types'
+import type { Project as ProjectType } from '../types'
 import { dynamicMazeGame } from './dynamic-maze-game'
 import { hardLookAtV0Prompting } from './hard-look-at-v0-prompting'
 import { cadServicesLogo } from './cad-services-logo'
 
-export type Project = Project
+export type Project = ProjectType
 
 export const projects = [
     dynamicMazeGame,
