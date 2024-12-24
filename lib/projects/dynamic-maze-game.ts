@@ -6,6 +6,7 @@ export const project: Project = {
   slug: "maze-runner-game",
   type: "Web Game",
   description: "A colorful maze game built with Bolt.new where players guide a rocket to the finish line using arrow keys. Features a high score system and vibrant rainbow trail effects.",
+  technologies: ["Bolt.new", "TypeScript", "HTML5", "CSS3"],
   content: "Created using Stackblitz's new Bolt.new platform, this maze runner game combines simple controls with engaging visuals.\n\nGameplay\n\nThis dynamic maze challenges players with ever-changing walls and pathways, encouraging creative problem-solving and quick thinking. As players progress, the increasing difficulty helps develop spatial awareness and strategic planning skills. The colorful rocket trail adds a vibrant visual element while teaching persistence and adaptability.\n\nCheck it out:\n\n• [Play the Game](https://neon-paprenjak-e8dbc7.netlify.app/)\n\n• [View on Stackblitz](https://stackblitz.com/edit/sb1-mhypgg)\n\n• [Open in Bolt.new](https://bolt.new/~/sb1-mhypgg)",
   challenges: [
     "Implementing smooth rocket movement with arrow key controls",
