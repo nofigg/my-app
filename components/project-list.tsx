@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { ChevronUp, ChevronDown } from 'lucide-react'
-import { Project } from "@/lib/projects"
+import { Project } from "@/lib/types"
 
 function toTitleCase(str: string) {
   return str.replace(
