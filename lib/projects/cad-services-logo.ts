@@ -2,7 +2,7 @@ import { Project } from '../types'
 
 export const project: Project = {
   date: "2024-08-01",
-  title: "Logo Design for a New CAD Services Team",
+  title: "Design Consultant Results For Aponte Design LLC",
   slug: "cad-services-logo",
   type: "Branding",
   description: "Created a minimalist, geometric logo design for a Computer-Aided Design (CAD) services company that reflects precision and technical expertise.",
